@@ -20,4 +20,9 @@ abstract class ChallengeBase {
 		}
 		fclose($handle);
 	}
+
+    public function setLines(array $lines)
+    {
+        $this->lines = $lines;
+    }
 }
