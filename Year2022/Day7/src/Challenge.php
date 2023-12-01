@@ -13,7 +13,23 @@ class Challenge extends ChallengeBase {
 	}
 
 	public function solveFirst(  ) {
-	    dd($this->lines);
+        $structure = ['/'=>[]];
+
+        $prevDir = '';
+        $curentDirectory = '/';
+	    foreach ($this->lines as $line){
+            if($line[0] === "$") {
+                $commands = explode("",$line);
+                if($commands[1] === "cd"){
+                    $prevDir = $curentDirectory;
+                  $curentDirectory = $structure[$curentDirectory][$commands[2]];
+                }
+
+                if($commands[1] === "ls"){
+
+                }
+            }
+        }
 	}
 	public function solveSecond(  ) {
 
