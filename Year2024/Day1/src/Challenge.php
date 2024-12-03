@@ -21,7 +21,25 @@ class Challenge extends ChallengeBase {
 		},$left,$right));
 	}
 	public function solveSecond(  ) {
+        [ $left, $right ] = $this->getInput();
+        sort($left);
 
+        $counted = [];
+        foreach ($right as $value) {
+            if(isset($counted[$value])) {
+                ++$counted[$value];
+            }else{
+                $counted[$value] = 1;
+            }
+        }
+
+        $total = 0;
+        foreach ($left as $value) {
+            if(isset($counted[$value])) {
+                $total += $value * $counted[$value];
+            }
+        }
+        return $total;
 	}/**
  * @return array[]
  */
